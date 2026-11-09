@@ -36,3 +36,15 @@ def backend(config, audio, client):
     backend_mock.library = library.dLeynaLibraryProvider(backend_mock, config)
     backend_mock.playback = playback.dLeynaPlaybackProvider(audio, backend_mock)
     return backend_mock
+
+
+@pytest.fixture
+def dbus(monkeypatch):
+    # dbus-python is a system package that is not installed for tests;
+    # client.py and backend.py only use it at call time
+    import sys
+    import types
+
+    stub = types.ModuleType("dbus")
+    monkeypatch.setitem(sys.modules, "dbus", stub)
+    return stub
