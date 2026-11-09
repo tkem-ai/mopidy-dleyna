@@ -33,7 +33,8 @@ def urimapper(baseuri, prefix="/com/intel/dLeynaServer/server/"):
 
     def mapper(obj, index=default_index):
         objpath = obj.get("RefPath", obj["Path"])
-        assert objpath.startswith(prefix)
+        if not objpath.startswith(prefix):
+            raise ValueError(f"Invalid dLeyna object path {objpath}")
         _, sep, relpath = objpath[index:].partition("/")
         obj["URI"] = baseuri + sep + relpath
         return obj
