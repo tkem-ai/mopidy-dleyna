@@ -74,7 +74,7 @@ class dLeynaBackend(pykka.ThreadingActor, backend.Backend):
             return str(match.group(1)), int(match.group(2))
 
     def __stop_session_bus(self, pid):
-        logger.error("Stopping %s D-Bus daemon (%d)", Extension.dist_name, pid)
+        logger.info("Stopping %s D-Bus daemon (%d)", Extension.dist_name, pid)
         try:
             os.kill(pid, signal.SIGTERM)
         except OSError as e:
