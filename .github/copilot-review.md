@@ -3,8 +3,9 @@
 **Date:** 2026-11-10
 **Reviewed:** `develop`, i.e. `master` at `6ab23ef` ("Bump actions/setup-python from
 6.2.0 to 6.3.0", v3.0.0 plus dependency bumps) plus the build environment update, the
-fixes for client errors, D-Bus shutdown logging and object paths and this review
-commit; `__version__` 3.0.0.
+fixes for client errors, D-Bus shutdown logging and object paths, "Exclude AGENTS.md
+from source distributions.", "Add system site packages setting as comment to tox.ini."
+and this review commit; `__version__` 3.0.0.
 
 **CI status:** All default `tox` environments pass locally on CPython 3.13.18 (`py`:
 51 passed) with Mopidy 4.0.5; not run on 3.14 locally and not against a real dLeyna
